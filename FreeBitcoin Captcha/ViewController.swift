@@ -57,6 +57,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
             }
         }
         
+        contador.text = "30:00"
+        progresso.progress = 0.5
         
     }
     
