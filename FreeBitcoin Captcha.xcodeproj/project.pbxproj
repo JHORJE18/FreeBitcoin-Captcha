@@ -24,6 +24,7 @@
 		C1470D551F7C348700518508 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1470D581F7C348700518508 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1470D5A1F7C348700518508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1470D611F7C4E0B00518508 /* bitcoin-2136339_960_720 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitcoin-2136339_960_720 copy.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		C1470D4A1F7C348700518508 /* FreeBitcoin Captcha */ = {
 			isa = PBXGroup;
 			children = (
+				C1470D601F7C4DF700518508 /* Extra */,
 				C1470D4B1F7C348700518508 /* AppDelegate.swift */,
 				C1470D4D1F7C348700518508 /* ViewController.swift */,
 				C1470D4F1F7C348700518508 /* Main.storyboard */,
@@ -65,6 +67,14 @@
 				C1470D521F7C348700518508 /* FreeBitcoin_Captcha.xcdatamodeld */,
 			);
 			path = "FreeBitcoin Captcha";
+			sourceTree = "<group>";
+		};
+		C1470D601F7C4DF700518508 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				C1470D611F7C4E0B00518508 /* bitcoin-2136339_960_720 copy.png */,
+			);
+			path = Extra;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
