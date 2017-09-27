@@ -94,6 +94,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         //Cancela Cuenta Atras
         @IBAction func CancelarCuenta(_ sender: UIBarButtonItem) {
             print("Se procede a cancelar la cuenta atras")
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         }
 }
-
