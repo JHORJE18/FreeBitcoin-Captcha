@@ -27,7 +27,7 @@
                                     <navigationItem title="FreeBitcoins Captcha" id="vL4-AZ-N6v"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hNp-Av-tNW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hNp-Av-tNW">
                                 <rect key="frame" x="20" y="108" width="335" height="120"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,6 +51,9 @@
                                 <items>
                                     <barButtonItem title="Iniciar" id="2ng-mp-uKc">
                                         <color key="tintColor" red="0.0" green="1" blue="0.080762223659999993" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="IniciarCuenta:" destination="BYZ-38-t0r" id="pTU-eW-YJD"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pb5-qf-Ksu"/>
                                     <barButtonItem systemItem="stop" id="S0i-gJ-nWa">
@@ -72,6 +75,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="o7u-VZ-rCH"/>
                                     <barButtonItem title="Cancelar" id="T5n-E8-3bW">
                                         <color key="tintColor" red="1" green="0.0" blue="0.059605572920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="CancelarCuenta:" destination="BYZ-38-t0r" id="oDg-ri-25G"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
