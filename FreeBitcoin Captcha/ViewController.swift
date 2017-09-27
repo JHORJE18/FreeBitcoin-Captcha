@@ -23,7 +23,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     var timer = Timer()
     var startTime = NSDate()
     
-    
+    //Al cargar pantaalla
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,6 +31,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         miWebKit.load(enlace)
     }
 
+    //Peligro NO TOCAR
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -41,12 +42,18 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         let elapsedTime = NSDate().timeIntervalSince(startTime as Date)
         let currTime = totalTime - Int(elapsedTime)
         //total time is an instance variable that is the total amount of time in seconds that you want
-        contador.text = String(currTime)
+        let (m,s) = secondsToMinutesSeconds(seconds: currTime)
+        contador.text = String("\(m):\(s)")
         if currTime <= 0 {
             //Tiempo agotado
             resetTiempo()
         }
     }
+    
+    //Formato Minutos y Segundos
+        func secondsToMinutesSeconds (seconds : Int) -> (Int, Int) {
+            return ((seconds % 3600) / 60, (seconds % 3600) % 60)
+        }
     
     //Reseteo tiempo
     func resetTiempo(){
