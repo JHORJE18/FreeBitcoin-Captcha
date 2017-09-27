@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController title="Principal" id="BYZ-38-t0r" customClass="ViewController" customModule="FreeBitcoin_Captcha" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="nD2-C2-69b">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
@@ -27,37 +27,48 @@
                                     <navigationItem title="FreeBitcoins Captcha" id="vL4-AZ-N6v"/>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="59:59" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hNp-Av-tNW">
-                                <rect key="frame" x="20" y="109" width="374" height="120"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hNp-Av-tNW">
+                                <rect key="frame" x="20" y="108" width="335" height="120"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView contentMode="scaleAspectFit" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E6o-DO-lls">
-                                <rect key="frame" x="40" y="239" width="334" height="2"/>
+                                <rect key="frame" x="36" y="238" width="303" height="2"/>
                                 <color key="progressTintColor" red="0.0" green="1" blue="0.080762223659999993" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="trackTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1S-Q2-Vw8">
-                                <rect key="frame" x="20" y="261" width="374" height="411"/>
+                            <wkWebView multipleTouchEnabled="YES" contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" customUserAgent="" translatesAutoresizingMaskIntoConstraints="NO" id="V1S-Q2-Vw8">
+                                <rect key="frame" x="20" y="260" width="335" height="449"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
+                                <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" audio="YES" video="YES"/>
+                                    <wkPreferences key="preferences" javaScriptCanOpenWindowsAutomatically="YES"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
                             <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="c7V-5A-Pfh">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="729" width="375" height="49"/>
                                 <items>
                                     <barButtonItem title="Iniciar" id="2ng-mp-uKc">
                                         <color key="tintColor" red="0.0" green="1" blue="0.080762223659999993" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pb5-qf-Ksu"/>
-                                    <barButtonItem systemItem="stop" id="S0i-gJ-nWa"/>
+                                    <barButtonItem systemItem="stop" id="S0i-gJ-nWa">
+                                        <connections>
+                                            <action selector="CancelarWeb:" destination="BYZ-38-t0r" id="qpc-Om-kvg"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Web" style="done" id="U4p-nn-wpQ">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <action selector="AbrirWeb:" destination="BYZ-38-t0r" id="h3H-qz-j8o"/>
+                                        </connections>
                                     </barButtonItem>
-                                    <barButtonItem systemItem="refresh" id="fIn-nb-tCM"/>
+                                    <barButtonItem systemItem="refresh" id="fIn-nb-tCM">
+                                        <connections>
+                                            <action selector="RecargarWeb:" destination="BYZ-38-t0r" id="3tq-JB-ENh"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="o7u-VZ-rCH"/>
                                     <barButtonItem title="Cancelar" id="T5n-E8-3bW">
                                         <color key="tintColor" red="1" green="0.0" blue="0.059605572920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -81,11 +92,16 @@
                             <constraint firstItem="c7V-5A-Pfh" firstAttribute="top" secondItem="V1S-Q2-Vw8" secondAttribute="bottom" constant="20" id="h3K-qU-4LO"/>
                             <constraint firstItem="nD2-C2-69b" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jMA-dA-Tkv"/>
                             <constraint firstItem="nD2-C2-69b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="k5Y-hr-ne6"/>
-                            <constraint firstItem="hNp-Av-tNW" firstAttribute="top" secondItem="nD2-C2-69b" secondAttribute="bottom" constant="45" id="rTJ-OW-wel"/>
+                            <constraint firstItem="hNp-Av-tNW" firstAttribute="top" secondItem="nD2-C2-69b" secondAttribute="bottom" constant="20" id="rTJ-OW-wel"/>
                             <constraint firstItem="E6o-DO-lls" firstAttribute="top" secondItem="hNp-Av-tNW" secondAttribute="bottom" constant="10" id="rZi-jW-wrA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="contador" destination="hNp-Av-tNW" id="2gm-s8-wJN"/>
+                        <outlet property="miWebKit" destination="V1S-Q2-Vw8" id="W68-Ge-Huv"/>
+                        <outlet property="progresso" destination="E6o-DO-lls" id="Lai-QP-HGI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
