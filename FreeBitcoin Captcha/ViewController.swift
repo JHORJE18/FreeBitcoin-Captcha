@@ -19,7 +19,10 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     //Variables
     let enlace = URLRequest(url: URL(string: "https://www.freebitco.in/?op=home")!)
-    var tiempo = 60
+    var totalTime = 18
+    var timer = Timer()
+    var startTime = NSDate()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +36,30 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //Cuenta atras
+    @objc func update() {
+        let elapsedTime = NSDate().timeIntervalSince(startTime as Date)
+        let currTime = totalTime - Int(elapsedTime)
+        //total time is an instance variable that is the total amount of time in seconds that you want
+        contador.text = String(currTime)
+        if currTime <= 0 {
+            //Tiempo agotado
+            resetTiempo()
+        }
+    }
+    
+    //Reseteo tiempo
+    func resetTiempo(){
+        timer.invalidate()
+        
+        contador.text = "🔰:🔰"
+        progresso.progress = 0.0
+    }
+    
     //Notificaciones
     func Notificar(){
         //Trigger Notificación
-        let triggerN = UNTimeIntervalNotificationTrigger(timeInterval: 10.0, repeats: false)
+        let triggerN = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(totalTime), repeats: false)
         
         //Contenido Notificación
         let contenidoN = UNMutableNotificationContent()
@@ -56,10 +79,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
                 print("Se ha producido un error: \(error)")
             }
         }
-        
-        contador.text = "30:00"
-        progresso.progress = 0.5
-        
     }
     
         //Mostrar notificacion incluso dentro de la app
@@ -72,6 +91,11 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         @IBAction func IniciarCuenta(_ sender: UIBarButtonItem) {
             print("Se procede a iniciar a cuenta atras")
             Notificar()
+            
+            startTime = NSDate()
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+            RunLoop.current.add(self.timer, forMode: RunLoopMode.commonModes)
+            startTime = NSDate() // new instance variable that you would need to add.
         }
     
         //Cancelar Web Carga
@@ -94,6 +118,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         //Cancela Cuenta Atras
         @IBAction func CancelarCuenta(_ sender: UIBarButtonItem) {
             print("Se procede a cancelar la cuenta atras")
+            resetTiempo()
+            
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         }
 }
