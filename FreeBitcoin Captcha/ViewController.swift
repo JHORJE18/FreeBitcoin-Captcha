@@ -19,7 +19,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     //Variables
     let enlace = URLRequest(url: URL(string: "https://www.freebitco.in/?op=home")!)
-    var totalTime = 18
+    var totalTime = 3600
     var timer = Timer()
     var startTime = NSDate()
     
@@ -44,6 +44,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         //total time is an instance variable that is the total amount of time in seconds that you want
         let (m,s) = secondsToMinutesSeconds(seconds: currTime)
         contador.text = String("\(m):\(s)")
+        establecerProgress(valor: currTime)
         if currTime <= 0 {
             //Tiempo agotado
             resetTiempo()
@@ -54,6 +55,13 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         func secondsToMinutesSeconds (seconds : Int) -> (Int, Int) {
             return ((seconds % 3600) / 60, (seconds % 3600) % 60)
         }
+    
+    //Barra Progreso
+    func establecerProgress(valor: Int){
+        let resto = Float(Double(valor) * 1) / Float(totalTime)
+        print("Progreso establecido a ", resto)
+        progresso.progress = 1 - resto
+    }
     
     //Reseteo tiempo
     func resetTiempo(){
