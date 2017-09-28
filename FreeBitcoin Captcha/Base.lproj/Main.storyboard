@@ -24,11 +24,14 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="FreeBitcoins Captcha" id="vL4-AZ-N6v"/>
+                                    <navigationItem title="FreeBitcoins Captcha" id="hjR-pb-OoN">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="qoP-bL-Mhk"/>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🔰:🔰" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hNp-Av-tNW">
                                 <rect key="frame" x="20" y="108" width="335" height="120"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="100"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
