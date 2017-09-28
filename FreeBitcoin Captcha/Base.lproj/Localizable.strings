@@ -6,4 +6,9 @@
   Copyright © 2017 Jorge Lopez Gil. All rights reserved.
 */
 
+//Notificaciones
 "Titulo_Notif" = "Añade Bitcoins 💰";
+"Body_Notif" = "Ya ha pasado más de 1⌚️Hora, vuelve para ganarte unos 🤑 Bitcoins 🤑";
+"AcRecor5Min" = "Recordar en 5 Min";
+"AcCancelRec" = "Cancelar recordatorio";
+"AcIniciar1h" = "Ya le he dado, avisame en 1 Hora";

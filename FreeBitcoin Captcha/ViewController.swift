@@ -97,18 +97,18 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         
         //Contenido Notificación
         let contenidoN = UNMutableNotificationContent()
-        contenidoN.title = NSLocalizedString("Titulo_Notif", comment: "Titulo_Notif")
-        contenidoN.body = "Ya ha pasado más de 1⌚️Hora, vuelve para ganarte unos 🤑 Bitcoins 🤑"
+        contenidoN.title = NSLocalizedString("Titulo_Notif", comment: "Titulo Notificacion")
+        contenidoN.body = NSLocalizedString("Body_Notif", comment: "Descripción de la notificacion")
         contenidoN.sound = UNNotificationSound.default()
 
         //Acciones
             //Recordar en 5 min
-            let recordarme5Action = UNNotificationAction(identifier: "recordarme5Action", title: "Recordar en 5 Min", options: [])
+            let recordarme5Action = UNNotificationAction(identifier: "recordarme5Action", title: NSLocalizedString("AcRecor5Min", comment: "Recordar en 5 min"), options: [])
         
             //Cancelar Recordatorio
-            let cancelarAction = UNNotificationAction(identifier: "cancelarAction", title: "Cancelar recordatorio", options: [])
+            let cancelarAction = UNNotificationAction(identifier: "cancelarAction", title: NSLocalizedString("AcCancelRec", comment: "Cancelar Recordatorio"), options: [])
             //Iniciar 1h
-            let iniciarAction = UNNotificationAction(identifier: "iniciarAction", title: "Ya le he dado, avisame en 1hora", options: [])
+            let iniciarAction = UNNotificationAction(identifier: "iniciarAction", title: NSLocalizedString("AcIniciar1h", comment: "Avisar en 1 hora"), options: [])
         
         //Categoria
         let categoriaActions = UNNotificationCategory(identifier: "categoriasFreeBitcoin", actions: [recordarme5Action, iniciarAction, cancelarAction], intentIdentifiers: [], options: [])

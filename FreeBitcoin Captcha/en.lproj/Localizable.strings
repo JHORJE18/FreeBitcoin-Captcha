@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  FreeBitcoin Captcha
+
+  Created by Jorge Lopez Gil on 28/9/17.
+  Copyright © 2017 Jorge Lopez Gil. All rights reserved.
+*/
+
+//Notificaciones
+"Titulo_Notif" = "Add Bitcoins 💰";
+"Body_Notif" = "It's been over 1⌚️Hour, return for win 🤑 Bitcoins 🤑";
+"AcRecor5Min" = "Remember in 5 Min";
+"AcCancelRec" = "Cancel reminder";
+"AcIniciar1h" = "I alreday gave it to you, let me know in 1 hour";
