@@ -20,6 +20,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     //Variables
     let enlace = URLRequest(url: URL(string: "https://www.freebitco.in/?op=home")!)
     var totalTime = 3600
+    let timeTotal = 3600
     var timer = Timer()
     var startTime = NSDate()
     
@@ -38,6 +39,15 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     //Cuenta atras
+    func iniciarTime(){
+        Notificar()
+        
+        startTime = NSDate()
+        self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+        RunLoop.current.add(self.timer, forMode: RunLoopMode.commonModes)
+        startTime = NSDate()
+    }
+    
     @objc func update() {
         let elapsedTime = NSDate().timeIntervalSince(startTime as Date)
         let currTime = totalTime - Int(elapsedTime)
@@ -49,6 +59,14 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
             //Tiempo agotado
             resetTiempo()
         }
+    }
+    
+    //Cancelar Tiempo
+    func cancelarTime(){
+        resetTiempo()
+        
+        timer.invalidate()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
     //Formato Minutos y Segundos
@@ -67,6 +85,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     func resetTiempo(){
         timer.invalidate()
         
+        totalTime = timeTotal
         contador.text = "🔰:🔰"
         progresso.progress = 0.0
     }
@@ -81,6 +100,24 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         contenidoN.title = "Añade Bitcoins 💰"
         contenidoN.body = "Ya ha pasado más de 1⌚️Hora, vuelve para ganarte unos 🤑 Bitcoins 🤑"
         contenidoN.sound = UNNotificationSound.default()
+
+        //Acciones
+            //Recordar en 5 min
+            let recordarme5Action = UNNotificationAction(identifier: "recordarme5Action", title: "Recordar en 5 Min", options: [])
+        
+            //Cancelar Recordatorio
+            let cancelarAction = UNNotificationAction(identifier: "cancelarAction", title: "Cancelar recordatorio", options: [])
+            //Iniciar 1h
+            let iniciarAction = UNNotificationAction(identifier: "iniciarAction", title: "Ya le he dado, avisame en 1hora", options: [])
+        
+        //Categoria
+        let categoriaActions = UNNotificationCategory(identifier: "categoriasFreeBitcoin", actions: [recordarme5Action, iniciarAction, cancelarAction], intentIdentifiers: [], options: [])
+        
+            //Añadir Categoria a Centro de control iOS
+            UNUserNotificationCenter.current().setNotificationCategories([categoriaActions])
+        
+            //Asignas Categoria a Notificación
+            contenidoN.categoryIdentifier = "categoriasFreeBitcoin"
         
         //Request Notificación
         let requestN = UNNotificationRequest(identifier: "FreeBitcoin Captcha", content: contenidoN, trigger: triggerN)
@@ -96,6 +133,29 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         }
     }
     
+    //Acciones Rápidas Notificaciones
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive reponse: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+
+        //Recordar en 5 minutos
+        if reponse.actionIdentifier == "recordarme5Action" {
+            totalTime = 300
+            iniciarTime()
+        }
+        
+        //Recordar en 1hora
+        if reponse.actionIdentifier == "iniciarAction" {
+            totalTime = timeTotal
+            iniciarTime()
+        }
+        
+        //Cancelar
+        if reponse.actionIdentifier == "cancelarAction" {
+            cancelarTime()
+        }
+        
+    }
+
+    
         //Mostrar notificacion incluso dentro de la app
         func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
             completionHandler([.alert, .sound])
@@ -105,12 +165,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         //Inicia Cuenta Atras
         @IBAction func IniciarCuenta(_ sender: UIBarButtonItem) {
             print("Se procede a iniciar a cuenta atras")
-            Notificar()
-            
-            startTime = NSDate()
-            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
-            RunLoop.current.add(self.timer, forMode: RunLoopMode.commonModes)
-            startTime = NSDate() // new instance variable that you would need to add.
+            iniciarTime()
         }
     
         //Cancelar Web Carga
@@ -133,9 +188,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         //Cancela Cuenta Atras
         @IBAction func CancelarCuenta(_ sender: UIBarButtonItem) {
             print("Se procede a cancelar la cuenta atras")
-            resetTiempo()
-            
-            timer.invalidate()
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+            cancelarTime()
         }
 }
