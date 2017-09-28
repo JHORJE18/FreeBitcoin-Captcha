@@ -135,6 +135,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
             print("Se procede a cancelar la cuenta atras")
             resetTiempo()
             
+            timer.invalidate()
             UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         }
 }
