@@ -28,10 +28,11 @@
 		C1470D611F7C4E0B00518508 /* bitcoin-2136339_960_720 copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bitcoin-2136339_960_720 copy.png"; sourceTree = "<group>"; };
 		C1470D661F7D09F500518508 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		C1470D671F7D0B2100518508 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
-		C1470D681F7D0B2100518508 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		C1470D6E1F7D0D2B00518508 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C14BD83B1F7D0EFE006F1BD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C14BD83C1F7D0F02006F1BD2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C14BD83E1F7D13AC006F1BD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C14BD8401F7D13AF006F1BD2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +183,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				C1470D581F7C348700518508 /* Base */,
-				C1470D681F7D0B2100518508 /* es */,
+				C14BD83E1F7D13AC006F1BD2 /* en */,
+				C14BD8401F7D13AF006F1BD2 /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
