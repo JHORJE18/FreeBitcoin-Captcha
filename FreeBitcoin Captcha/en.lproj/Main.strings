@@ -1,0 +1,18 @@
+
+/* Class = "UIBarButtonItem"; title = "Iniciar"; ObjectID = "2ng-mp-uKc"; */
+"2ng-mp-uKc.title" = "Start";
+
+/* Class = "UIViewController"; title = "Principal"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "Principal";
+
+/* Class = "UIBarButtonItem"; title = "Cancelar"; ObjectID = "T5n-E8-3bW"; */
+"T5n-E8-3bW.title" = "Cancel";
+
+/* Class = "UIBarButtonItem"; title = "Web"; ObjectID = "U4p-nn-wpQ"; */
+"U4p-nn-wpQ.title" = "Web";
+
+/* Class = "UILabel"; text = "🔰:🔰"; ObjectID = "hNp-Av-tNW"; */
+"hNp-Av-tNW.text" = "🔰:🔰";
+
+/* Class = "UINavigationItem"; title = "FreeBitcoins Captcha"; ObjectID = "hjR-pb-OoN"; */
+"hjR-pb-OoN.title" = "FreeBitcoins Captcha";

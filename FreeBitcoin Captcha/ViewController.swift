@@ -97,7 +97,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         
         //Contenido Notificación
         let contenidoN = UNMutableNotificationContent()
-        contenidoN.title = "Añade Bitcoins 💰"
+        contenidoN.title = NSLocalizedString("Titulo_Notif", comment: "Titulo_Notif")
         contenidoN.body = "Ya ha pasado más de 1⌚️Hora, vuelve para ganarte unos 🤑 Bitcoins 🤑"
         contenidoN.sound = UNNotificationSound.default()
 
