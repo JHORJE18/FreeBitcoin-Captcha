@@ -17,12 +17,21 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet var contador: UILabel!
     @IBOutlet var progresso: UIProgressView!
     
+    //Elementos esteticos
+    @IBOutlet var dsNavBar: UINavigationBar!
+    @IBOutlet var dsViewContenedor: UIView!
+    @IBOutlet var dsToolBar: UIToolbar!
+    @IBOutlet var btnAbrirWeb: UIBarButtonItem!
+    @IBOutlet var btnNocturno: UIBarButtonItem!
+    
     //Variables
     let enlace = URLRequest(url: URL(string: "https://www.freebitco.in/?op=home")!)
     var totalTime = 3600
     let timeTotal = 3600
     var timer = Timer()
     var startTime = NSDate()
+    var nocturno = true
+    var currTime = 0
     
     //Al cargar pantaalla
     override func viewDidLoad() {
@@ -30,6 +39,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         UNUserNotificationCenter.current().delegate = self
         miWebKit.load(enlace)
+        setNocturno()
     }
 
     //Peligro NO TOCAR
@@ -50,7 +60,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     @objc func update() {
         let elapsedTime = NSDate().timeIntervalSince(startTime as Date)
-        let currTime = totalTime - Int(elapsedTime)
+        currTime = totalTime - Int(elapsedTime)
         //total time is an instance variable that is the total amount of time in seconds that you want
         let (m,s) = secondsToMinutesSeconds(seconds: currTime)
         contador.text = String("\(m):\(s)")
@@ -160,7 +170,19 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
             completionHandler([.alert, .sound])
         }
-
+    
+    //Botones superiores
+    @IBAction func avanzarTime(_ sender: UIBarButtonItem) {
+        cancelarTime()
+        totalTime = currTime - 300
+        iniciarTime()
+    }
+    @IBAction func retrocederTime(_ sender: UIBarButtonItem) {
+        cancelarTime()
+        totalTime = currTime + 300
+        iniciarTime()
+    }
+    
     //Botones inferiores
         //Inicia Cuenta Atras
         @IBAction func IniciarCuenta(_ sender: UIBarButtonItem) {
@@ -190,4 +212,41 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
             print("Se procede a cancelar la cuenta atras")
             cancelarTime()
         }
+    
+    //Estetica DISEÑO
+    @IBAction func alterModoNoche(_ sender: UIBarButtonItem) {
+        if nocturno {
+            nocturno = false
+        } else {
+            nocturno = true
+        }
+        
+        setNocturno()
+    }
+    
+    func setNocturno(){
+        
+        if nocturno {
+            dsViewContenedor.backgroundColor = .black
+            dsNavBar.barStyle = .black
+            dsToolBar.barStyle = .black
+            contador.textColor = .white
+            btnAbrirWeb.tintColor = .white
+            btnNocturno.tintColor = .white
+            UIApplication.shared.statusBarStyle = .lightContent
+            
+            btnNocturno.title = NSLocalizedString("BtnNoche", comment: "Texto Modo Noche")
+        } else {
+            dsViewContenedor.backgroundColor = .white
+            dsNavBar.barStyle = .default
+            dsToolBar.barStyle = .default
+            contador.textColor = .black
+            btnAbrirWeb.tintColor = .black
+            btnNocturno.tintColor = .black
+            UIApplication.shared.statusBarStyle = .default
+            
+            btnNocturno.title = NSLocalizedString("BtnDia", comment: "Texto Modo Dia")
+        }
+        
+    }
 }

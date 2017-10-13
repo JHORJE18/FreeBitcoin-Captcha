@@ -20,12 +20,19 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="nD2-C2-69b">
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </textAttributes>
+                                <gestureRecognizers/>
                                 <items>
                                     <navigationItem title="FreeBitcoins Captcha" id="hjR-pb-OoN">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="action" id="qoP-bL-Mhk"/>
+                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="rewind" id="Pmp-ll-oHU">
+                                            <connections>
+                                                <action selector="retrocederTime:" destination="BYZ-38-t0r" id="Z9p-3A-4Mo"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="fastForward" id="36X-z4-IjL">
+                                            <connections>
+                                                <action selector="avanzarTime:" destination="BYZ-38-t0r" id="x2w-8q-Zog"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -64,8 +71,12 @@
                                             <action selector="CancelarWeb:" destination="BYZ-38-t0r" id="qpc-Om-kvg"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Noche" style="done" id="TCk-nT-NUZ">
+                                        <connections>
+                                            <action selector="alterModoNoche:" destination="BYZ-38-t0r" id="hLE-QM-3bB"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem title="Web" style="done" id="U4p-nn-wpQ">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="AbrirWeb:" destination="BYZ-38-t0r" id="h3H-qz-j8o"/>
                                         </connections>
@@ -85,7 +96,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hNp-Av-tNW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4vM-S3-gnR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="c7V-5A-Pfh" secondAttribute="bottom" id="8j2-7h-zvF"/>
@@ -107,7 +118,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="btnAbrirWeb" destination="U4p-nn-wpQ" id="T1C-5M-UTk"/>
+                        <outlet property="btnNocturno" destination="TCk-nT-NUZ" id="iqP-3W-12q"/>
                         <outlet property="contador" destination="hNp-Av-tNW" id="2gm-s8-wJN"/>
+                        <outlet property="dsNavBar" destination="nD2-C2-69b" id="pvN-oa-zu3"/>
+                        <outlet property="dsToolBar" destination="c7V-5A-Pfh" id="IFt-Id-eET"/>
+                        <outlet property="dsViewContenedor" destination="8bC-Xf-vdC" id="Wg9-sc-PcJ"/>
                         <outlet property="miWebKit" destination="V1S-Q2-Vw8" id="W68-Ge-Huv"/>
                         <outlet property="progresso" destination="E6o-DO-lls" id="Lai-QP-HGI"/>
                     </connections>

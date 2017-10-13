@@ -12,3 +12,5 @@
 "AcRecor5Min" = "Recordar en 5 Min";
 "AcCancelRec" = "Cancelar recordatorio";
 "AcIniciar1h" = "Ya le he dado, avisame en 1 Hora";
+"BtnNoche" = "Noche";
+"BtnDia" = "Dia";

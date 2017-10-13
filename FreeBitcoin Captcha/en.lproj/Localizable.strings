@@ -12,3 +12,5 @@
 "AcRecor5Min" = "Remember in 5 Min";
 "AcCancelRec" = "Cancel reminder";
 "AcIniciar1h" = "I already gave it to you, let me know in 1 hour";
+"BtnNoche" = "Night";
+"BtnDia" = "Day";
