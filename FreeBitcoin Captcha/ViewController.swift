@@ -50,17 +50,17 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     //Cuenta atras
     func iniciarTime(){
-        Notificar()
-        
         startTime = NSDate()
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
         RunLoop.current.add(self.timer, forMode: RunLoopMode.commonModes)
-        startTime = NSDate()
+        
+        
     }
     
     @objc func update() {
         let elapsedTime = NSDate().timeIntervalSince(startTime as Date)
         currTime = totalTime - Int(elapsedTime)
+        print("El curreTime es de ---->> ", currTime)
         //total time is an instance variable that is the total amount of time in seconds that you want
         let (m,s) = secondsToMinutesSeconds(seconds: currTime)
         contador.text = String("\(m):\(s)")
@@ -68,6 +68,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         if currTime <= 0 {
             //Tiempo agotado
             resetTiempo()
+        } else {
+            Notificar()
         }
     }
     
@@ -76,6 +78,12 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         resetTiempo()
         
         timer.invalidate()
+        cancelarNotificacion()
+        
+    }
+    
+    //Cancela Notificacion pendiente
+    func cancelarNotificacion(){
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
@@ -103,7 +111,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     //Notificaciones
     func Notificar(){
         //Trigger Notificación
-        let triggerN = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(totalTime), repeats: false)
+        let triggerN = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(currTime), repeats: false)
         
         //Contenido Notificación
         let contenidoN = UNMutableNotificationContent()
@@ -133,7 +141,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         let requestN = UNNotificationRequest(identifier: "FreeBitcoin Captcha", content: contenidoN, trigger: triggerN)
         
         //Elimina notificaciones pendientes
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        cancelarNotificacion()
         
         //Envia la notificacion
         UNUserNotificationCenter.current().add(requestN) {(error) in
@@ -146,6 +154,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     //Acciones Rápidas Notificaciones
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive reponse: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
 
+        miWebKit.reload()
+        
         //Recordar en 5 minutos
         if reponse.actionIdentifier == "recordarme5Action" {
             totalTime = 300
@@ -173,14 +183,17 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     //Botones superiores
     @IBAction func avanzarTime(_ sender: UIBarButtonItem) {
-        cancelarTime()
-        totalTime = currTime - 300
-        iniciarTime()
+        print("Moviendo tiempo inicial a ",startTime)
+        startTime = startTime.addingTimeInterval(-60)
     }
     @IBAction func retrocederTime(_ sender: UIBarButtonItem) {
-        cancelarTime()
-        totalTime = currTime + 300
-        iniciarTime()
+        print("Moviendo tiempo inicial a ",startTime)
+        if currTime > 3540 {
+            cancelarTime()
+            iniciarTime()
+        } else {
+            startTime = startTime.addingTimeInterval(60)
+        }
     }
     
     //Botones inferiores

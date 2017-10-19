@@ -59,7 +59,7 @@
                             <toolbar clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="c7V-5A-Pfh">
                                 <rect key="frame" x="0.0" y="729" width="375" height="49"/>
                                 <items>
-                                    <barButtonItem title="Iniciar" id="2ng-mp-uKc">
+                                    <barButtonItem title="Iniciar" style="done" id="2ng-mp-uKc">
                                         <color key="tintColor" red="0.0" green="1" blue="0.080762223659999993" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="IniciarCuenta:" destination="BYZ-38-t0r" id="pTU-eW-YJD"/>
@@ -87,7 +87,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="o7u-VZ-rCH"/>
-                                    <barButtonItem title="Cancelar" id="T5n-E8-3bW">
+                                    <barButtonItem title="Cancelar" style="plain" id="T5n-E8-3bW">
                                         <color key="tintColor" red="1" green="0.0" blue="0.059605572920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="CancelarCuenta:" destination="BYZ-38-t0r" id="oDg-ri-25G"/>
