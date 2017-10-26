@@ -87,7 +87,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="o7u-VZ-rCH"/>
-                                    <barButtonItem title="Cancelar" style="plain" id="T5n-E8-3bW">
+                                    <barButtonItem enabled="NO" title="Cancelar" style="plain" id="T5n-E8-3bW">
                                         <color key="tintColor" red="1" green="0.0" blue="0.059605572920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <action selector="CancelarCuenta:" destination="BYZ-38-t0r" id="oDg-ri-25G"/>
@@ -119,6 +119,8 @@
                     </view>
                     <connections>
                         <outlet property="btnAbrirWeb" destination="U4p-nn-wpQ" id="T1C-5M-UTk"/>
+                        <outlet property="btnCancelar" destination="T5n-E8-3bW" id="mcC-j8-FBl"/>
+                        <outlet property="btnIniciar" destination="2ng-mp-uKc" id="kEW-vR-6uF"/>
                         <outlet property="btnNocturno" destination="TCk-nT-NUZ" id="iqP-3W-12q"/>
                         <outlet property="contador" destination="hNp-Av-tNW" id="2gm-s8-wJN"/>
                         <outlet property="dsNavBar" destination="nD2-C2-69b" id="pvN-oa-zu3"/>

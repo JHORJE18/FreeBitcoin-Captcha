@@ -16,6 +16,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet var miWebKit: WKWebView!
     @IBOutlet var contador: UILabel!
     @IBOutlet var progresso: UIProgressView!
+    @IBOutlet var btnIniciar: UIBarButtonItem!
+    @IBOutlet var btnCancelar: UIBarButtonItem!
     
     //Elementos esteticos
     @IBOutlet var dsNavBar: UINavigationBar!
@@ -54,7 +56,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
         RunLoop.current.add(self.timer, forMode: RunLoopMode.commonModes)
         
-        
+        btnCancelar.isEnabled = true;
+        btnIniciar.isEnabled = false;
     }
     
     @objc func update() {
@@ -80,6 +83,8 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         timer.invalidate()
         cancelarNotificacion()
         
+        btnIniciar.isEnabled = true
+        btnCancelar.isEnabled = false
     }
     
     //Cancela Notificacion pendiente

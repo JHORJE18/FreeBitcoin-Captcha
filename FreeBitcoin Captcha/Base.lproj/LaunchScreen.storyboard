@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,25 +23,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoin-2136339_960_720 copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="OWR-pb-UGc">
-                                <rect key="frame" x="20" y="40" width="335" height="607"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cargando..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RPq-Wh-xOh">
-                                <rect key="frame" x="16" y="585.5" width="343" height="61.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cargando..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="RPq-Wh-xOh">
+                                <rect key="frame" x="16" y="586" width="343" height="62"/>
                                 <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="50"/>
                                 <color key="textColor" red="1" green="0.57457399368286133" blue="0.0019781978335231543" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoin-2136339_960_720 copy.png" translatesAutoresizingMaskIntoConstraints="NO" id="OWR-pb-UGc">
+                                <rect key="frame" x="30" y="150" width="314" height="366"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="OWR-pb-UGc" secondAttribute="trailing" constant="20" id="5rk-nL-Zba"/>
-                            <constraint firstItem="OWR-pb-UGc" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="97Q-Qr-IxN"/>
-                            <constraint firstItem="OWR-pb-UGc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bFx-Vb-KW4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RPq-Wh-xOh" secondAttribute="bottom" constant="20" id="c6m-0D-OeP"/>
-                            <constraint firstItem="OWR-pb-UGc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="jpc-YF-ejB"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OWR-pb-UGc" secondAttribute="bottom" constant="20" id="u1t-i6-FDv"/>
-                            <constraint firstItem="OWR-pb-UGc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="vcW-Pm-XdZ"/>
+                            <constraint firstItem="OWR-pb-UGc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="130" id="1Tr-hG-M1L"/>
+                            <constraint firstItem="OWR-pb-UGc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="2JN-HD-zqi"/>
+                            <constraint firstItem="RPq-Wh-xOh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="8P9-JG-vrF"/>
+                            <constraint firstItem="OWR-pb-UGc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Cpu-rc-gPc"/>
+                            <constraint firstItem="RPq-Wh-xOh" firstAttribute="top" secondItem="OWR-pb-UGc" secondAttribute="bottom" constant="70" id="O3r-bI-4GY"/>
+                            <constraint firstItem="OWR-pb-UGc" firstAttribute="centerX" secondItem="RPq-Wh-xOh" secondAttribute="centerX" id="pIW-24-X8p"/>
+                            <constraint firstItem="RPq-Wh-xOh" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" id="wGU-xL-yEZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
